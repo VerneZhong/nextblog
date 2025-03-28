@@ -1,4 +1,4 @@
-// app/posts/[slug].tsx
+// app/posts/[slug]/page.tsx
 import { notFound } from "next/navigation";
 
 const posts = {
