@@ -14,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <nav className="bg-blue-600 p-4 text-white">
             <Link href="/" className="mr-4">ホーム</Link>
             <Link href="/posts/" className="mr-4">投稿</Link>
+            <Link href="/content/" className="mr-4">コンテンツ</Link>
         </nav>
         <main className="container mx-auto p-4">{children}</main>
         </body>
