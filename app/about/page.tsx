@@ -42,7 +42,9 @@ export default function AboutPage() {
                             <h4 className="font-bold text-gray-700 mb-2">フロントエンド</h4>
                             <ul className="text-gray-600">
                                 <li>React</li>
+                                <li>Vue</li>
                                 <li>Next.js</li>
+                                <li>Nuxt.js</li>
                                 <li>TypeScript</li>
                                 <li>Tailwind CSS</li>
                             </ul>
@@ -51,9 +53,21 @@ export default function AboutPage() {
                             <h4 className="font-bold text-gray-700 mb-2">バックエンド</h4>
                             <ul className="text-gray-600">
                                 <li>Node.js</li>
+                                <li>Java</li>
+                                <li>Go</li>
                                 <li>Express</li>
                                 <li>MongoDB</li>
                                 <li>PostgreSQL</li>
+                                <li>MySQL</li>
+                            </ul>
+                        </div>
+                        <div className="bg-gray-50 p-4 rounded-lg text-center">
+                            <h4 className="font-bold text-gray-700 mb-2">フレームワーク</h4>
+                            <ul className="text-gray-600">
+                                <li>Spring</li>
+                                <li>SpringBoot</li>
+                                <li>SpringCloud</li>
+                                <li>Mybatis</li>
                             </ul>
                         </div>
                         <div className="bg-gray-50 p-4 rounded-lg text-center">
@@ -61,6 +75,7 @@ export default function AboutPage() {
                             <ul className="text-gray-600">
                                 <li>Git</li>
                                 <li>Docker</li>
+                                <li>IntelliJ IDEA</li>
                                 <li>VS Code</li>
                                 <li>Vercel</li>
                             </ul>
