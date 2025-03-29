@@ -14,13 +14,13 @@ export default function Blog() {
                     </p>
                     <div className="flex space-x-4">
                         <Link
-                            href="/posts"
+                            href="/posts/"
                             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                         >
                             記事を読む
                         </Link>
                         <Link
-                            href="/about"
+                            href="/about/"
                             className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 transition-colors"
                         >
                             About

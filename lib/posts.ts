@@ -59,6 +59,7 @@ export async function getPostData(id: string) {
     const matterResult = matter(fileContents);
 
     // 使用 remark 转换 markdown 为 HTML
+    // 修复 TypeScript 类型问题
     const processedContent = await remark()
         .use(html)
         .process(matterResult.content);
@@ -70,4 +71,22 @@ export async function getPostData(id: string) {
         contentHtml,
         ...(matterResult.data as { title: string, date: string })
     };
+}
+
+// 添加导出获取所有 post ID 的函数，用于生成静态路径
+export async function getAllPostIds() {
+    // 检查目录是否存在
+    if (!fs.existsSync(contentDirectory)) {
+        console.warn(`Content directory not found: ${contentDirectory}`);
+        return [];
+    }
+
+    const fileNames = fs.readdirSync(contentDirectory)
+        .filter(fileName => fileName.endsWith('.md'));
+
+    return fileNames.map(fileName => {
+        return {
+            id: fileName.replace(/\.md$/, '')
+        };
+    });
 }

@@ -1,7 +1,29 @@
-import { getPostData } from '@/lib/posts';
+// app/content/[id]/page.tsx
+import { getPostData, getAllPostIds } from '@/lib/posts';
+import { notFound } from 'next/navigation';
 
-export default async function PostPage({ params }: { params: { id: string } }) {
-    const postData = await getPostData(params.id);
+// 生成静态路径
+export async function generateStaticParams() {
+    const paths = await getAllPostIds();
+    return paths.map(path => ({
+        id: path.id
+    }));
+}
+
+// 定义接口来明确参数类型
+interface PostPageProps {
+    params: {
+        id: string;
+    };
+}
+
+export default async function PostPage(props: PostPageProps) {
+    // 使用完整的 props 参数
+    const postData = await getPostData(props.params.id);
+
+    if (!postData) {
+        notFound();
+    }
 
     return (
         <div className="container mx-auto px-4 py-8">
