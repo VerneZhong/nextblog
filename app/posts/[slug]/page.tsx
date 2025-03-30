@@ -6,8 +6,17 @@ const posts = {
     "second-post": { title: "2番目の投稿", content: "This is my second blog post." },
 };
 
-export default function Post({ params }: { params: { slug: string } }) {
-    const post = posts[params.slug];
+// 更新接口定义
+interface PostPageProps {
+    params: Promise<{
+        slug: string;
+    }>;
+}
+
+export default async function Post({ params }: PostPageProps) {
+    // 先await整个params对象
+    const { slug } = await params;
+    const post = posts[slug];
 
     if (!post) {
         notFound();

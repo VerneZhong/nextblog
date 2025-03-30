@@ -12,15 +12,16 @@ export async function generateStaticParams() {
 
 // 定义接口来明确参数类型
 interface PostPageProps {
-    params: {
+    params: Promise<{
         id: string;
-    };
+    }>;
 }
 
-export default async function PostPage(props: PostPageProps) {
+export default async function PostPage({ params }: PostPageProps) {
+    // 先await params参数
+    const { id } = await params;
     // 使用完整的 props 参数
-    const postData = await getPostData(props.params.id);
-
+    const postData = await getPostData(id);
     if (!postData) {
         notFound();
     }
