@@ -1,6 +1,8 @@
 // app/content/[id]/page.tsx
 import { getPostData, getAllPostIds } from '@/lib/posts';
 import { notFound } from 'next/navigation';
+import {Suspense} from "react";
+import FirebaseComments from '@/components/FirebaseComments';
 
 // 生成静态路径
 export async function generateStaticParams() {
@@ -35,6 +37,11 @@ export default async function PostPage({ params }: PostPageProps) {
                     dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
                     className="markdown-content"
                 />
+
+                {/* 客户端组件需要用Suspense包裹 */}
+                <Suspense fallback={<div>加载评论...</div>}>
+                    <FirebaseComments postId={id} />
+                </Suspense>
             </article>
         </div>
     );
