@@ -6,3 +6,7 @@ npm install disqus-react
 
 ## Firebaseをインストール
 npm install firebase
+
+## Tailwind CSSをインストール
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
